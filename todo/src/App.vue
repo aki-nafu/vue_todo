@@ -1,5 +1,5 @@
 <template>
-  <ToDoApp msg="Welcome to Your Vue.js App"/>
+  <ToDoApp/>
 </template>
 
 <script>

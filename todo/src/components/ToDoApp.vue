@@ -4,7 +4,9 @@
       <input v-model="todo"><br>
     <button @click="addTodo">追加</button>
     <ul>
-      <li v-for="(todo, index) in todos" :key="index">{{ todo }} <span @click="removeTodo(index)">X</span></li>
+      <li v-for="(todo, index) in todos" :key="index">
+        <input type="checkbox" @click="removeTodo(index)" >{{ todo }} 
+      </li>
     </ul>
   </div>
 </template>
