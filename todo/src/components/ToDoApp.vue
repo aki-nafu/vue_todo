@@ -5,7 +5,9 @@
     <button @click="addTodo">追加</button>
     <ul>
       <li v-for="(todo, index) in todos" :key="todo">
-        <input type="checkbox" v-model="todo.isCompleted" @click="removeTodo(index)" >{{ todo.name }} 
+        <div v-show="!todo.isCompleted">
+          <input type="checkbox" v-model="todo.isCompleted" @click="removeTodo(index)" >{{ todo.name }} 
+        </div>
       </li>
     </ul>
   </div>
@@ -26,8 +28,9 @@ export default {
       this.todoName = ''
     },
     removeTodo(index) {
-      this.todos.splice(index, 1)
+      this.todos[index].isCompleted = true
     }
+    
   }
 }
 </script>
