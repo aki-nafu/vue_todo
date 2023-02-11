@@ -4,11 +4,11 @@
       <input v-model="todoName"><br>
     <button @click="addTodo">追加</button>
     <ul>
-      <li v-for="(todo, index) in todos" :key="todo">
-        <div v-show="!todo.isCompleted">
+      <template v-for="(todo, index) in todos">
+        <li v-if="!todo.isCompleted" :key="todo">
           <input type="checkbox" v-model="todo.isCompleted" @click="removeTodo(index)" >{{ todo.name }} 
-        </div>
-      </li>
+        </li>
+      </template>
     </ul>
   </div>
 </template>
