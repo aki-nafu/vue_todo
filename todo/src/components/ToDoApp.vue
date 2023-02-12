@@ -1,7 +1,7 @@
 <template>
   <div id="app" className="panel is-warning">
     <h1 className="panel-heading">
-      Todo
+      ToDo
     </h1>
     <div className="panel-block">
       <input class="input" v-model="todoName" ><br>
