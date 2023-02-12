@@ -1,24 +1,29 @@
 <template>
-  <div id="app">
-    <h1>Todoリスト</h1>
-    <div>
-      <a href="#" @click="changeFilter('ALL') ">ALL</a>
-      <a href="#" @click="changeFilter('TODO')">TODO</a>
-      <a href="#" @click="changeFilter('DONE')">DONE</a>
+  <div id="app" className="panel is-warning">
+    <h1 className="panel-heading">
+      Todo
+    </h1>
+    <div className="panel-block">
+      <input class="input" v-model="todoName" ><br>
+      <button class="button" @click="addTodo">Add</button>
     </div>
-    <input v-model="todoName"><br>
-    <button @click="addTodo">追加</button>
+    <div className="panel-tabs">
+      <a href="#" @click="changeFilter('ALL') ">All</a>
+      <a href="#" @click="changeFilter('TODO')">Todo</a>
+      <a href="#" @click="changeFilter('DONE')">Done</a>
+    </div>
     <ul>
       <template v-for="(todo, index) in todos">
-        <li v-if="filter === null || filter === todo.isCompleted" :key="todo">
+        <label className="panel-block" v-if="filter === null || filter === todo.isCompleted" :key="todo">
           <input type="checkbox" v-model="todo.isCompleted" @click="removeTodo(index)">{{ todo.name }}
-        </li>
+        </label>
       </template>
     </ul>
   </div>
 </template>
 
 <script>
+import 'bulma/css/bulma.css';
 export default {
   data() {
     return {
