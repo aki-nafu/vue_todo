@@ -1,7 +1,7 @@
 <template>
   <div id="app" className="panel is-warning">
-    <h1 className="panel-heading">
-      ToDo
+    <h1 className="panel-heading display">
+      <img src="../Vue.png" width="20" height="20" align="center"> ToDo
     </h1>
     <div className="panel-block">
       <input class="input" placeholder="Enter to add" v-model="todoName" ><br>
