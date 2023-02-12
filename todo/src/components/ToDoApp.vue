@@ -4,12 +4,12 @@
       ToDo
     </h1>
     <div className="panel-block">
-      <input class="input" v-model="todoName" ><br>
+      <input class="input" placeholder="Enter to add" v-model="todoName" ><br>
       <button class="button" @click="addTodo">Add</button>
     </div>
     <div className="panel-tabs">
       <a href="#" @click="changeFilter('ALL') ">All</a>
-      <a href="#" @click="changeFilter('TODO')">Todo</a>
+      <a href="#" @click="changeFilter('TODO')">ToDo</a>
       <a href="#" @click="changeFilter('DONE')">Done</a>
     </div>
     <ul>
