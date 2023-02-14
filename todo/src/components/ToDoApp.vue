@@ -12,19 +12,18 @@
       <a href="#" @click="changeFilter('TODO')">ToDo</a>
       <a href="#" @click="changeFilter('DONE')">Done</a>
     </div>
-    <ul>
-      <template v-for="(todo, index) in todos">
-        <label className="panel-block" v-if="filter === null || filter === todo.isCompleted" :key="todo">
-          <input type="checkbox" v-model="todo.isCompleted" @click="removeTodo(index)">{{ todo.name }}
-        </label>
-      </template>
-    </ul>
+    <ToDoList :todos="todos" :filter="filter" />
   </div>
 </template>
 
 <script>
 import 'bulma/css/bulma.css';
+import ToDoList from './ToDoList.vue'
+
 export default {
+  components: {
+    ToDoList,
+  },
   data() {
     return {
       todoName:'',
@@ -37,9 +36,6 @@ export default {
       if (this.todoName == '') return;
       this.todos.push({name: this.todoName, isCompleted: false})
       this.todoName = ''
-    },
-    removeTodo(index) {
-      this.todos[index].isCompleted = true
     },
     changeFilter(value) {
       switch (value) {
